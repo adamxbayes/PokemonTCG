@@ -1,11 +1,3 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
@@ -14,7 +6,18 @@
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-list>
+      <ion-item *ngIf="loading">Fetching Cards...</ion-item>
+      <ion-item *ngIf="cardSets">
+        <ion-label>Choose a Set</ion-label>
+        <ion-select placeholder="Choose Set" (ionChange)="onChange($event)">
+          <ion-select-option *ngFor="let set of cardSets" value="{{set.code}}" >{{set.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    
+<ion-button [hidden]="!selectedSet" (click)="navigateSetDetails()">
+  Show me the cards
+</ion-button>
   </div>
 </ion-content>
