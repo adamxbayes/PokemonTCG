@@ -9,10 +9,15 @@
     <ion-list>
       <ion-item *ngIf="loading">Fetching Cards...</ion-item>
       <ion-item *ngIf="cardSets">
-        <ion-select placeholder="Choose Set">
-          <ion-select-option *ngFor="let set of cardSets">{{set.name}}</ion-select-option>
+        <ion-label>Choose a Set</ion-label>
+        <ion-select placeholder="Choose Set" (ionChange)="onChange($event)">
+          <ion-select-option *ngFor="let set of cardSets" value="{{set.code}}" >{{set.name}}</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-list>
+    
+<ion-button [hidden]="!selectedSet" (click)="navigateSetDetails()">
+  Show me the cards
+</ion-button>
   </div>
 </ion-content>
