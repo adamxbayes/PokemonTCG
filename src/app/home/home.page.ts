@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { PokemonTCG } from 'pokemon-tcg-sdk-typescript';
 import { Card } from 'pokemon-tcg-sdk-typescript/dist/sdk';
 import { CardSet } from 'src/models/set.model';
@@ -39,5 +39,11 @@ export class HomePage {
   }
 
   navigateSetDetails(): void {
+    let params: NavigationExtras = {
+      state: {
+        code: this.selectedSet
+      }
+    };
+    this.router.navigate(['card-set-details'], params);
   }
 }
