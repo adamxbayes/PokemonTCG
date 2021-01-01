@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { PokemonTCG } from 'pokemon-tcg-sdk-typescript';
 import { Card } from 'src/models/card.model';
 import { CardSet } from 'src/models/set.model';
@@ -70,4 +70,13 @@ export class CardSetDetailsPage implements OnInit {
     } catch {}
   }
 
+  public showCard(card: Card){
+    console.log(card);
+    let params: NavigationExtras = {
+      state: {
+        card: card
+      }
+  }
+  this.router.navigate(['card-details'], params);
+  }
 }

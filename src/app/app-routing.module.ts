@@ -15,6 +15,10 @@ const routes: Routes = [
     path: 'card-set-details',
     loadChildren: () => import('./card-set-details/card-set-details.module').then( m => m.CardSetDetailsPageModule)
   },
+  {
+    path: 'card-details',
+    loadChildren: () => import('./card-details/card-details.module').then( m => m.CardDetailsPageModule)
+  },
 ];
 
 @NgModule({
