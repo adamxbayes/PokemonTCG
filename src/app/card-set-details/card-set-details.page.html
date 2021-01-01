@@ -25,5 +25,20 @@
           {{releaseDate}}
         </ion-label>
       </ion-item>
+      <ion-item>
+        <ion-label>
+          Number of Cards: 
+        </ion-label>
+        <ion-label>
+          {{totalNumberOfCards}}
+        </ion-label>
+      </ion-item>
+      <ion-row>
+       <ion-list>
+         <ion-item *ngFor="let card of cardsInSet" class="ion-justify-content-center">
+           {{card.name}}
+         </ion-item>
+       </ion-list>
+      </ion-row>
 </ion-grid>
 </ion-content>
