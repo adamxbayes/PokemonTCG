@@ -25,3 +25,21 @@
 #container a {
   text-decoration: none;
 }
+
+ion-content {
+  --background: navy;
+  border: solid 1em #ffcb05;
+  border-radius: 1em;
+}
+
+ion-select{
+  background-color:  #ffcb05;
+
+}
+ion-list, ion-item {
+  --background: red;
+  ion-label {font-size: 1.4em; text-transform: uppercase;}
+}
+
+ion-list-header{font-size: 2em;}
+ion-label { text-align: center; font-size: 24px;}

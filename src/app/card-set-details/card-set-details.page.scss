@@ -1,1 +1,7 @@
-ion-list {width: 100%}
+ion-list {--background: #d37575; width: 100%}
+ion-content {
+    --background: #d37575;
+    border: solid 1em #ffcb05;
+    border-radius: 1em;
+  }
+  

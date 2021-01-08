@@ -20,8 +20,9 @@ export class AppComponent {
     private firestore: AngularFirestore
   ) {
     this.initializeApp();
-    this.items = firestore.collection('items').valueChanges();
-    console.log('items', this.items);
+    firestore.collection('items').valueChanges(res => {console.log(res)});
+    
+    
   }
 
   initializeApp() {
