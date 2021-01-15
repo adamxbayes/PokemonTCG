@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "pokemontcg-60e3b": {
+      "hosting": {
+        "app": [
+          "pokemontcg-60e3b"
+        ]
+      }
+    }
+  }
+}

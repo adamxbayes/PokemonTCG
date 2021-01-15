@@ -1,5 +1,6 @@
 <ion-header>
   <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
     <ion-title *ngIf="setDetails">{{setDetails.name}}</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -7,7 +8,8 @@
 <ion-content>
 <ion-grid>
   <ion-row class="ion-justify-content-center">
-    <ion-img src="{{logoUrl}}"></ion-img>
+    <ion-spinner *ngIf="loading"></ion-spinner>
+    <ion-img  *ngIf="!loading" src="{{logoUrl}}"></ion-img>
   </ion-row>
       <ion-item>
         <ion-label>
@@ -35,7 +37,8 @@
       </ion-item>
       <ion-row>
        <ion-list>
-         <ion-item *ngFor="let card of cardsInSet" class="ion-justify-content-center">
+         <ion-list-header>Cards</ion-list-header>
+         <ion-item *ngFor="let card of cardsInSet" class="ion-justify-content-center" (click)="showCard(card)">
            {{card.name}}
          </ion-item>
        </ion-list>
