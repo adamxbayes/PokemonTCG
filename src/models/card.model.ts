@@ -1,7 +1,7 @@
 export class Card {
     public id: string;
     public name: string;
-    public nationalPokemonNumber: number;
+    public nationalPokedexNumber: number;
     public imageUrl: string;
     public imageUrlHiRes: string;
     public types: string[];
@@ -54,3 +54,14 @@ export class Weakness {
     }
 }
 
+export class FavouriteCard {
+    public id: string;
+    public nationalPokedexNumber: number;
+    public name: string;
+    public series: string;
+    public set: string;
+
+    constructor(init?: Partial<FavouriteCard>){
+        Object.assign(this, init);
+    }
+}

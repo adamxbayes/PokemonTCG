@@ -32,25 +32,21 @@ export class CardDetailsPage implements OnInit {
 
   ngOnInit() {
     // get if card is stored or not
-    console.log('attemptingto get items');
-    this.pokemonService.items.subscribe((items)=>{
-      console.log('items', items);
-    });
+    let cardsInStore = this.pokemonService.getFavouritePokemonCards();
+    console.log(cardsInStore);
     
   }
 
   handleTopRightAction() {
-    if (this.isSaved) {
-      this.removeCard();
-    } else {
-      this.saveCard();
-    }
+    console.log('called');
+    this.saveCard();
   }
 
   removeCard() {
     // remove card from store set isSaved to false;
   }
   saveCard() {
+    this.pokemonService.addFavouritePokemonCard(this.card);
     // save card to store set isSaved to true;
   }
 
