@@ -9,13 +9,19 @@ import { Item } from '../../models/Item';
 export class PokemonService {
   itemsCollection: AngularFirestoreCollection<Item>
   items: Observable<Item[]>
+  favouriteCards: Observable<Item[]>
 
   constructor(public afs: AngularFirestore) { 
-    this.items = afs.collection('items').valueChanges();  //returns collection as observable
   }
 
   getItems() {
+    this.items = this.afs.collection('items').valueChanges();
     return this.items;
+  }
+
+  getFavouritePokemonCards() {
+    this.favouriteCards = this.afs.collection('favourite-cards').valueChanges();
+    return this.favouriteCards;
   }
 }
 

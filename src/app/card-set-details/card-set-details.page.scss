@@ -1,7 +1,7 @@
 ion-list {--background: #d37575; width: 100%}
 ion-content {
-    --background: #d37575;
-    border: solid 1em #ffcb05;
+  --background: #fff url('../../assets/card_back.jpg') no-repeat center center / cover;
+  border: solid 1em #ffcb05;
     border-radius: 1em;
   }
   

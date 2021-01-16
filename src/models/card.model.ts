@@ -45,7 +45,6 @@ export class Attack {
     }
 }
 
-
 export class Weakness {
     public type: string;
     public value: string;
