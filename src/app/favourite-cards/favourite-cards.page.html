@@ -8,7 +8,7 @@
 <ion-content>
   <ion-spinner *ngIf="loading"></ion-spinner>
   <ion-list *ngIf="favouriteCards">
-    <ion-item *ngFor="let card of favouriteCards">
+    <ion-item *ngFor="let card of favouriteCards" (click)="viewCard(card)">
       <ion-label>{{card.name}}</ion-label>
     </ion-item>
   </ion-list>

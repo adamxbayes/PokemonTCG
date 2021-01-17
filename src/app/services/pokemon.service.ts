@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { ApiResponse } from 'src/models/api-response.model';
 import { Card, FavouriteCard } from 'src/models/card.model';
 import { Item } from '../../models/Item';
 
@@ -26,6 +27,7 @@ export class PokemonService {
   }
 
   addFavouritePokemonCard(card: Card) {
+    const apiResponse = new ApiResponse;
     const favouriteCardValues = {
       name: card.name,
       id: card.id,
@@ -33,12 +35,18 @@ export class PokemonService {
       series: card.series,
       set: card.set
     };
+    if (this.canAddCard(favouriteCardValues)){
+      this.afs.collection('favourite-cards').add(favouriteCardValues).then((res)=>{
+        this.getFavouritePokemonCards();
+        return apiResponse.success = true;
+      });
+    } else {
+     apiResponse.success = false;
+    }
+  }
 
-    this.afs.collection('favourite-cards').add(favouriteCardValues).then((res)=>{
-      console.log('res from adding', res)
-      this.getFavouritePokemonCards();
-    });
-
+  canAddCard(card): boolean {
+    return card.name !='' && card.id !=''; 
   }
 }
 
