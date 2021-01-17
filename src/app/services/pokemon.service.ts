@@ -9,6 +9,7 @@ import { Item } from '../../models/Item';
   providedIn: 'root'
 })
 export class PokemonService {
+
   itemsCollection: AngularFirestoreCollection<Item>
   items: Observable<Item[]>
   favouriteCards: Observable<any[]>
@@ -43,6 +44,10 @@ export class PokemonService {
     } else {
      apiResponse.success = false;
     }
+  }
+
+  removeFavouitePokemonCard(card: Card) {
+    //todo
   }
 
   canAddCard(card): boolean {
