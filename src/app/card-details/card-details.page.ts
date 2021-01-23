@@ -68,7 +68,7 @@ export class CardDetailsPage implements OnInit {
 
   removeCard() {
     // remove card from store set isSaved to false;
-    this.pokemonService.removeFavouitePokemonCard(this.card);
+    this.pokemonService.removeFavouritePokemonCard(this.card);
   }
   saveCard() {
     this.pokemonService.addFavouritePokemonCard(this.card);

@@ -46,8 +46,8 @@ export class PokemonService {
     }
   }
 
-  removeFavouitePokemonCard(card: Card) {
-    //todo
+  removeFavouritePokemonCard(card: Card) {
+    // TODO
   }
 
   canAddCard(card): boolean {
