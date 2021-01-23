@@ -23,6 +23,7 @@ export class CardSetDetailsPage implements OnInit {
 
   constructor(private route: ActivatedRoute, private router: Router) {
     this.route.queryParams.subscribe(params => {
+      console.log(params);
       if (this.router.getCurrentNavigation().extras.state) {
         this.selectedSet = this.router.getCurrentNavigation().extras.state.code;
       } else {

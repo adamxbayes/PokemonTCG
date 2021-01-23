@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+    <ion-title>Your favourite cards</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-spinner *ngIf="loading"></ion-spinner>
+  <ion-list *ngIf="favouriteCards">
+    <ion-item *ngFor="let card of favouriteCards" (click)="viewCard(card)">
+      <ion-label>{{card.name}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

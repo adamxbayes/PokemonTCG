@@ -1,13 +1,14 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Adams Pokemon App</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div id="container">
     <ion-list>
       <ion-item *ngIf="loading">Fetching Cards...</ion-item>
+      <ion-item *ngIf="errorMessage">{{errorMessage}}</ion-item>
       <ion-item *ngIf="cardSets">
         <ion-label>Choose a Set</ion-label>
         <ion-select placeholder="Choose Set" (ionChange)="onChange($event)">
@@ -16,8 +17,21 @@
       </ion-item>
     </ion-list>
     
-<ion-button [hidden]="!selectedSet" (click)="navigateSetDetails()">
-  Show me the cards
-</ion-button>
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col [hidden]="!selectedSet">
+          <ion-button  (click)="navigateSetDetails()">
+            Show me the cards
+          </ion-button>
+        </ion-col>
+        <ion-col [hidden]="!favourites">
+          <ion-button (click)="goToFavourites()">
+            View Favourites
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
   </div>
 </ion-content>

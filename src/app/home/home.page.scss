@@ -27,13 +27,14 @@
 }
 
 ion-content {
-  --background: navy;
+  --background: #fff url('../../assets/card_back.jpg') no-repeat center center / cover;
+  background-size: 100%;
   border: solid 1em #ffcb05;
   border-radius: 1em;
 }
 
 ion-select{
-  background-color:  #ffcb05;
+
 
 }
 ion-list, ion-item {

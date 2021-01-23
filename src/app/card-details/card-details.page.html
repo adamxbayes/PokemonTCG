@@ -1,8 +1,8 @@
 <ion-header>
   <ion-toolbar>
     <ion-back-button slot="start"></ion-back-button>
-    <ion-title>{{card.name}}</ion-title>
-    <ion-icon name="iconValue" (click)="handleTopRightAction()"></ion-icon>
+    <ion-title *ngIf="card.name">{{card.name}}</ion-title>
+    <ion-icon slot="end" name="{{iconValue}}" (click)="handleTopRightAction()"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
