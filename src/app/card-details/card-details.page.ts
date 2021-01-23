@@ -31,6 +31,9 @@ export class CardDetailsPage implements OnInit {
       }
     })
   }
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
   handleCard() {
     console.log('handle card called', this.card);
     this.loading = true;
