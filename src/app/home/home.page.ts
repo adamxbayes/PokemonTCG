@@ -3,6 +3,7 @@ import { NavigationExtras, Router } from '@angular/router';
 import { PokemonTCG } from 'pokemon-tcg-sdk-typescript';
 import { Card } from 'pokemon-tcg-sdk-typescript/dist/sdk';
 import { CardSet } from 'src/models/set.model';
+import { Toast, ShowOptions, ToastPlugin } from '@capacitor/toast';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -15,7 +16,7 @@ export class HomePage {
   public errorMessage: string;
   private selectedSet: CardSet;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private toast: ToastPlugin) {
     this.setup();
     this.getCardSets();
     
@@ -40,6 +41,9 @@ export class HomePage {
     var promise = new Promise<void>((resolve, reject) => {
       try {
         this.loading = true;
+        const showOps: ShowOptions = {duration: 'short', text: 'fetching cards'};
+        this.toast.show(showOps);
+
         PokemonTCG.Set.all().then(res =>
           res.forEach(set => {
             const setModel = new CardSet(set);
